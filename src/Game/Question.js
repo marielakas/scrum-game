@@ -22,7 +22,23 @@ const Question = ({ question, options, submitAnswer }) => (
       ))}
     </div>
 
-    <button className="btn btn-primary" onClick={() => {}}>
+    <button
+      className="btn btn-primary"
+      onClick={() => {
+        const answer = document.querySelector(
+          `input[name="option-${question
+            .toLowerCase()
+            .trim()
+            .replace(/\s/g, "-")}"]:checked`
+        );
+
+        if (!answer) {
+          return;
+        }
+
+        return submitAnswer(answer.value);
+      }}
+    >
       submit answer
     </button>
   </div>
