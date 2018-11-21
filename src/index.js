@@ -7,9 +7,17 @@ import "./styles.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="title">Scrum fun game</h1>
-      <Game />
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <h1 class="title">Scrum fun game</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <Game />
+        </div>
+      </div>
     </div>
   );
 }
