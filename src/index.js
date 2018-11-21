@@ -1,12 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import Question from "./Game/Question";
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import Game from "./Game";
+
+import "./styles.css";
+
+function App() {
+  return (
+    <div className="App">
+      <h1 className="title">Scrum fun game</h1>
+      <Game />
+      <Question question="Why scrum" options={["a", "b", "c"]} />
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
