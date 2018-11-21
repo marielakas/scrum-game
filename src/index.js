@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import Question from "./Game/Question";
+import Result from "./Game/Result";
 
 import Game from "./Game";
 
@@ -13,6 +14,7 @@ function App() {
       <h1 className="title">Scrum fun game</h1>
       <Game />
       <Question question="Why scrum" options={["a", "b", "c"]} />
+      <Result/>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import React from "react";
 
-import hardcodeQuestions from "../../questions";
+import hardcodeQuestions from "../questions";
 
-const Answer = questions => {
+const Result = questions => {
   let correctAnswers = 0;
   let wrongAnswers = 0;
   hardcodeQuestions.forEach(question => {
@@ -14,9 +14,9 @@ const Answer = questions => {
 
   return (
     <div>
-      You got #{correctAnswers} correct and #{wrongAnswers} wrong.
+      You got {correctAnswers} correct and {wrongAnswers} wrong.
     </div>
   );
 };
 
-export default Answer;
+export default Result;
