@@ -1,10 +1,10 @@
 import React from "react";
 
 const Question = ({ question, options, submitAnswer }) => (
-  <div className="question">
+  <div class="question">
     <h2>{question}</h2>
 
-    <div className="options">
+    <div class="options">
       {options.map(option => (
         <div>
           <input
@@ -17,13 +17,13 @@ const Question = ({ question, options, submitAnswer }) => (
             value={option}
             key={option}
           />
-          <span className="option">{option}</span>
+          <span class="option">{option}</span>
         </div>
       ))}
     </div>
 
     <button
-      className="btn btn-primary"
+      class="btn btn-primary"
       onClick={() => {
         const answer = document.querySelector(
           `input[name="option-${question
