@@ -11,7 +11,10 @@
 
   .title {
     padding-bottom: 20px;
-    text-align: center;
+    background: linear-gradient(top,  rgb(206,106,255) 0%,rgb(201,97,252) 0%,rgb(95,255,255) 34%,rgb(102,249,98) 65%,rgb(255,96,96) 100%,rgb(255,105,106) 100%); /* W3C */
+
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
   }
 
   .question {

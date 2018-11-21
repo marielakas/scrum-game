@@ -10,7 +10,11 @@ function App() {
     <div class="container-fluid">
       <div class="row">
         <div class="col">
-          <h1 class="title">Scrum fun game</h1>
+        <marquee direction="down" width="100%" height="200" behavior="alternate">
+          <marquee behavior="alternate">
+          <h1 class="title">Scrum fun game (real fun)</h1>
+          </marquee>
+        </marquee>
         </div>
       </div>
       <div class="row">
