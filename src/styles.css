@@ -18,7 +18,12 @@
   }
 
   .question {
-    margin: 25px 0;
+    margin: 45px 0;
+  }
+
+  .question h2 {
+    font-size: 22px;
+    line-height: 22px;
   }
 
   .options {
