@@ -28,5 +28,9 @@ export default [
     question: "Which is not an effective way to encourage collaboration between the scrum development team and product owner?",
     options: ["Teach the team to talk in terms of business needs and objectives", "Listen to their communications", "Act as a go-between for them", "Teach the product owner about technologies the team uses"],
     correctAnswer: "Act as a go-between for them"
-  }
+  },
+  {id: 5,
+    question: "Which is not an effective way to encourage collaboration between the scrum development team and product owner?",
+    options: ["Teach the team to talk in terms of business needs and objectives", "Listen to their communications", "Act as a go-between for them", "Teach the product owner about technologies the team uses"],
+    correctAnswer: "Act as a go-between for them"}
 ];
