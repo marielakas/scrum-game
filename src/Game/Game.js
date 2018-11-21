@@ -10,9 +10,8 @@ export default class Game extends Component {
     result: []
   };
 
-  handleAnswerSubmit = result => {
-    debugger;
-    const { currentQuestionIndex } = this.state;
+  handleAnswerSubmit = answer => {
+    const { currentQuestionIndex, result } = this.state;
     const shouldChangeIndex =
       this.state.currentQuestionIndex + 1 >= questions.length - 1;
 
@@ -21,7 +20,7 @@ export default class Game extends Component {
         ? currentQuestionIndex + 1
         : currentQuestionIndex,
       isGameFinished: true,
-      result: this.state.result.concat(result)
+      result: result.concat({ id: currentQuestionIndex, answer})
     });
   };
 
