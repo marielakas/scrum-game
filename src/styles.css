@@ -2,27 +2,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+  }
 
-body {
+  body {
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     padding: 10px;
-}
+  }
 
-.title {
+  .title {
     padding-bottom: 20px;
     text-align: center;
-}
+  }
 
-.question {
+  .question {
     margin: 25px 0;
-}
+  }
 
-.options {
+  .options {
     margin-bottom: 10px;
-}
+  }
 
-.option {
+  .option {
     display: inline-block;
     text-indent: 10px;
-}
+  }
