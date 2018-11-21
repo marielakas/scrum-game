@@ -6,12 +6,12 @@ const Result = ({ result }) => {
   let correctAnswers = 0;
   let wrongAnswers = 0;
   hardcodeQuestions.forEach(question => {
-    debugger
     if(result[question.id]) {
       if (question.correctAnswer === result[question.id].answer) {
         correctAnswers += 1;
+      } else {
+        wrongAnswers += 1;
       }
-    wrongAnswers += 1;
     }
   });
 

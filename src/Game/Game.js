@@ -12,27 +12,26 @@ export default class Game extends Component {
 
   handleAnswerSubmit = answer => {
     const { currentQuestionIndex, result } = this.state;
-    const shouldChangeIndex =
+    const hasNextQuestion =
       this.state.currentQuestionIndex + 1 >= questions.length - 1;
 
     this.setState({
-      currentQuestionIndex: shouldChangeIndex
+      currentQuestionIndex: !hasNextQuestion
         ? currentQuestionIndex + 1
         : currentQuestionIndex,
-      isGameFinished: true,
+      isGameFinished: hasNextQuestion,
       result: result.concat({ id: currentQuestionIndex, answer})
     });
   };
 
   render() {
-    const { result } = this.state;
-    
+    const { result, isGameFinished, currentQuestionIndex } = this.state;
+    const currentQuestion = questions[currentQuestionIndex];
+
     return (
       <div>
-        {questions.map(question => (
-          <Question {...question} submitAnswer={this.handleAnswerSubmit} />
-        ))}
-        { result.length > 0 ? <Result result={result}/> : null}
+        <Question {...currentQuestion} submitAnswer={this.handleAnswerSubmit} />
+        { isGameFinished ? <Result result={result}/> : null}
       </div>
     );
   }
