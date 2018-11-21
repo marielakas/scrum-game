@@ -12,14 +12,14 @@ export default class Game extends Component {
 
   handleAnswerSubmit = answer => {
     const { currentQuestionIndex, result } = this.state;
-    const hasNextQuestion =
+    const isGameFinished =
       this.state.currentQuestionIndex + 1 >= questions.length - 1;
 
     this.setState({
-      currentQuestionIndex: !hasNextQuestion
+      currentQuestionIndex: !isGameFinished
         ? currentQuestionIndex + 1
         : currentQuestionIndex,
-      isGameFinished: hasNextQuestion,
+      isGameFinished,
       result: result.concat({ id: currentQuestionIndex, answer})
     });
   };
