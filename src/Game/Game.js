@@ -32,7 +32,7 @@ export default class Game extends Component {
         {questions.map(question => (
           <Question {...question} submitAnswer={this.handleAnswerSubmit} />
         ))}
-        { result && <Result result={result}/>}
+        { result.length > 0 ? <Result result={result}/> : null}
       </div>
     );
   }
