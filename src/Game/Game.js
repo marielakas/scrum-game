@@ -27,7 +27,7 @@ export default class Game extends Component {
 
   handleAnswerSubmit = answer => {
     const { currentQuestionIndex, correctAnswers } = this.state;
-    const hasNextQuestion =
+    const isGameFinished =
       this.state.currentQuestionIndex + 1 >= questions.length - 1;
 
     const isAnswerCorrect = this.isAnswerCorrect(currentQuestionIndex, answer);
@@ -36,8 +36,8 @@ export default class Game extends Component {
       currentQuestionIndex: !isGameFinished
         ? currentQuestionIndex + 1
         : currentQuestionIndex,
-      isGameFinished: hasNextQuestion,
-      correctAnswers: isAnswerCorrect ? correctAnswers + 1 : correctAnswers
+      correctAnswers: isAnswerCorrect ? correctAnswers + 1 : correctAnswers,
+      isGameFinished
     });
   };
 
