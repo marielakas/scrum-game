@@ -22,7 +22,7 @@ export default class QuestionsEdit extends Component {
     console.log(questions);
 
     return (
-      <div>
+      <div style={{ fontFamily: "Arial", fontSize: "15px", padding: "10px" }}>
         <QuestionList
           questions={questions}
           onDeleteQuestion={this.handleQuestionDelete}
