@@ -18,15 +18,14 @@ export default class StartScreen extends Component {
   render() {
     const { onStartClick } = this.props;
 
-    console.log(this.state.username)
     return (
       <div className="start-screen-container">
         <div className="input-container">
           <input
             type="text"
-            //class="form-control"
-           //  placeholder="Username"
-            //aria-label="Username"
+            class="form-control"
+            placeholder="Username"
+            aria-label="Username"
             onChange={this.handleUsernameChange}
           />
           <button
