@@ -35,7 +35,7 @@ export default class Game extends Component {
   handleAnswerSubmit = answer => {
     const { currentQuestionIndex, correctAnswers } = this.state;
     const isGameFinished =
-      this.state.currentQuestionIndex + 1 >= questions.length - 1;
+      this.state.currentQuestionIndex >= questions.length - 1;
 
     const isAnswerCorrect = this.isAnswerCorrect(currentQuestionIndex, answer);
 
