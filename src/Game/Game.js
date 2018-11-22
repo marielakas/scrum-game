@@ -33,7 +33,7 @@ export default class Game extends Component {
     const isAnswerCorrect = this.isAnswerCorrect(currentQuestionIndex, answer);
 
     this.setState({
-      currentQuestionIndex: !hasNextQuestion
+      currentQuestionIndex: !isGameFinished
         ? currentQuestionIndex + 1
         : currentQuestionIndex,
       isGameFinished: hasNextQuestion,
@@ -44,6 +44,7 @@ export default class Game extends Component {
   render() {
     const { correctAnswers, isGameFinished, currentQuestionIndex } = this.state;
     const currentQuestion = questions[currentQuestionIndex];
+    console.log(this.props.username)
 
     return (
       <div>
