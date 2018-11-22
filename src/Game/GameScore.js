@@ -43,7 +43,7 @@ export default class GameScoreContainer extends Component {
             className="btn btn-primary btn-lg"
             onClick={onQuizResultsClick}
           >
-            Back Quiz results
+            Back to Quiz results
           </button>
         </div>
       </div>
