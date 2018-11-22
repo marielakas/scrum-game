@@ -90,3 +90,7 @@ body {
   margin: 0 5px;
 }
 
+.counter {
+  text-align: right;
+}
+

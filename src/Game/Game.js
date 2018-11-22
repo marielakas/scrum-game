@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import questions from "../questions";
 import Question from "./Question";
 import Result from "./Result";
+import Counter from "./Counter";
 import { saveGameScore } from './GameService';
 import GameScore from './GameScore';
 
@@ -73,6 +74,7 @@ export default class Game extends Component {
 
     return (
       <div>
+        { !isGameFinished && <Counter currentQuestionIndex={currentQuestionIndex}/> }
         { !isGameFinished && !showScores &&  <Question {...currentQuestion} submitAnswer={this.handleAnswerSubmit} /> }
         { isGameFinished && !showScores ? <Result numberOfRightAnswers={correctAnswers}/> : null}
         <div className="button-wrapper">
