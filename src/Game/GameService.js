@@ -3,11 +3,7 @@ import * as store from "../store";
 export function saveGameScore(username, score) {
   const currentScores = getScores();
 
-  console.log("saving", currentScores);
-
   store.set("GAME_SCORES", [...currentScores, { username, score }]);
-
-  console.log(getScores());
 }
 
 export function getScores() {
