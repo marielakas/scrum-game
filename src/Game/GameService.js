@@ -11,7 +11,6 @@ export function saveGameScore(username, score) {
 }
 
 export function getScores() {
-
   return store.get("GAME_SCORES") || [];
 }
 
@@ -19,3 +18,6 @@ export function resetGameScore() {
   store.set("GAME_SCORES", []);
 }
 
+export const getUsernames = () => {
+  return store.get("GAME_SCORES").filter(score => score.username) || [];
+};

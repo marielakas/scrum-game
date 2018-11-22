@@ -90,3 +90,10 @@ body {
   margin: 0 5px;
 }
 
+.board-item { 
+  padding: 10px; 
+}
+
+.winner {
+  background-color: green;
+}
