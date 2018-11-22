@@ -22,7 +22,6 @@ class App extends Component {
   handleStartClick = username => {
     const { usernames } = this.state;
     const userExists = usernames.indexOf(username) !== -1;
-    console.log(userExists)
 
     this.setState({
       isGameStarted: !userExists,

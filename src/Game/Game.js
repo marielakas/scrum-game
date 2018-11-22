@@ -39,6 +39,10 @@ export default class Game extends Component {
     }
   };
 
+  showQuizResults = () => {
+    this.setState({ isGameFinished: true, showScores: false });
+  };
+
   handleAnswerSubmit = answer => {
     const { currentQuestionIndex, correctAnswers } = this.state;
     const isGameFinished =
@@ -96,9 +100,15 @@ export default class Game extends Component {
         {isGameFinished &&
           !showScores &&
           questions.map(currentQuestion => (
-            <Question {...currentQuestion} readonly />
+            <Question key={currentQuestion.id} {...currentQuestion} readonly />
           ))}
-        {isGameFinished && showScores && <GameScore username={username} />}
+        {isGameFinished && showScores && (
+          <GameScore
+            username={username}
+            onResetClick={this.resetQuiz}
+            onQuizResultsClick={this.showQuizResults}
+          />
+        )}
       </div>
     );
   }

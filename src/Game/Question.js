@@ -7,24 +7,35 @@ import React from "react";
 
 const getClassNames = (option, rightOption, wrongOption, readonly) => {
   if (readonly && rightOption === option) {
-    return 'btn btn-success';
+    return "btn btn-success";
   }
 
   if (readonly && wrongOption === option) {
-    return 'btn btn-danger';
+    return "btn btn-danger";
   }
 
-  return 'btn btn-light';
-}
+  return "btn btn-light";
+};
 
-const Question = ({ question, options, submitAnswer, readonly, rightOption, wrongOption }) => (
+const Question = ({
+  question,
+  options,
+  submitAnswer,
+  readonly,
+  rightOption,
+  wrongOption
+}) => (
   <div className="question">
     <h2>{question}</h2>
 
     <div className="options">
       {options.map(option => (
         <div className="option" key={option}>
-          <button disabled={readonly} onClick={() => submitAnswer(option)} class={getClassNames(option, rightOption, wrongOption, readonly)}>
+          <button
+            disabled={readonly}
+            onClick={() => submitAnswer(option)}
+            class={getClassNames(option, rightOption, wrongOption, readonly)}
+          >
             {option}
           </button>
         </div>

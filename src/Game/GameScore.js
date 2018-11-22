@@ -11,10 +11,14 @@ export default class GameScoreContainer extends Component {
 
   render() {
     const scores = this.state.scores.slice(0, 5);
+    const { onResetClick, onQuizResultsClick } = this.props;
 
     return (
       <div className="card" style={{ width: 500 }}>
-        <h5 className="card-title" style={{ textAlign: "center", marginTop: 20 }}>
+        <h5
+          className="card-title"
+          style={{ textAlign: "center", marginTop: 20 }}
+        >
           Top 5 Scrum Masters :)
         </h5>
         <div className="card-body">
@@ -30,6 +34,17 @@ export default class GameScoreContainer extends Component {
               <div style={{ clear: "both" }} />
             </div>
           ))}
+        </div>
+        <div className="button-wrapper">
+          <button className="btn btn-primary btn-lg" onClick={onResetClick}>
+            Reset
+          </button>
+          <button
+            className="btn btn-primary btn-lg"
+            onClick={onQuizResultsClick}
+          >
+            Quiz results
+          </button>
         </div>
       </div>
     );
