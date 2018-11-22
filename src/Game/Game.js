@@ -3,11 +3,13 @@ import questions from "../questions";
 import Question from "./Question";
 import Result from "./Result";
 import { saveGameScore } from './GameService';
+import GameScore from './GameScore';
 
 const initialState = {
   currentQuestionIndex: 0,
   isGameFinished: false,
-  correctAnswers: 0
+  correctAnswers: 0,
+  showScores: false
 };
 
 export default class Game extends Component {
@@ -24,6 +26,10 @@ export default class Game extends Component {
 
   resetQuiz = () => {
     this.setState(initialState);
+  }
+
+  showScores = () => {
+    this.setState({ showScores: true });
   }
 
   isAnswerCorrect = (currentQuestionIndex, answer) => {
@@ -62,18 +68,19 @@ export default class Game extends Component {
   };
 
   render() {
-    const { correctAnswers, isGameFinished, currentQuestionIndex } = this.state;
+    const { correctAnswers, isGameFinished, currentQuestionIndex, showScores } = this.state;
     const currentQuestion = questions[currentQuestionIndex];
 
     return (
       <div>
-        { !isGameFinished && <Question {...currentQuestion} submitAnswer={this.handleAnswerSubmit} /> }
-        { isGameFinished ? <Result numberOfRightAnswers={correctAnswers}/> : null}
+        { !isGameFinished && !showScores &&  <Question {...currentQuestion} submitAnswer={this.handleAnswerSubmit} /> }
+        { isGameFinished && !showScores ? <Result numberOfRightAnswers={correctAnswers}/> : null}
         <div className="button-wrapper">
           { isGameFinished && <button className="btn btn-primary btn-lg" onClick={this.resetQuiz}>Reset</button>}
-          { isGameFinished && <button className="btn btn-primary btn-lg" onClick={this.showScoreboard}>Show scoreboard</button>}
+          { isGameFinished && !showScores && <button className="btn btn-primary btn-lg" onClick={this.showScores}>Show scoreboard</button>}
         </div>
-        { isGameFinished && questions.map(currentQuestion => <Question {...currentQuestion} readonly />)}
+        { isGameFinished && !showScores &&  questions.map(currentQuestion => <Question {...currentQuestion} readonly />)}
+        { isGameFinished && showScores && <GameScore /> }
       </div>
     );
   }

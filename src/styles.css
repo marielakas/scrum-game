@@ -59,9 +59,9 @@ body {
   .start-screen-container {
     display: flex;
     flex-direction: column;
-    width: 500px;
-    height: 500px;
-    border: 1px solid grey;
+    width: 300px;
+    height: 250px;
+    border: 1px solid #ced4da;
     align-items: center;
     justify-content: center;
   }
