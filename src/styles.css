@@ -124,3 +124,8 @@ body {
   color: red;
   font-size: 12px;
 }
+
+.raketa-btn {
+  text-align: right;
+  margin-bottom: 20px;
+}

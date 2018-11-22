@@ -1,0 +1,25 @@
+.raketa-theme {
+}
+
+.raketa-theme body {
+  animation: none;
+  background-color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.raketa-theme .fun-text {
+  display: none;
+}
+
+.raketa-theme .title {
+  animation: none;
+  background: transparent;
+  color: black;
+  -webkit-background-clip: initial;
+	-webkit-text-fill-color: initial;
+}
+
+.raketa-theme .raketa-text {
+  display: block;
+  text-align: center;
+}

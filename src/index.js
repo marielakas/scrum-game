@@ -7,6 +7,7 @@ import StartScreen from "./Game/StartScreen";
 
 import "./styles.css";
 import "./christmas.css";
+import "./raketa.css";
 
 class App extends Component {
   state = { isGameStarted: false, username: "", usernames: getUsernames() };
@@ -48,16 +49,16 @@ class App extends Component {
               height="400"
               behavior="alternate"
             >
-              <marquee behavior="alternate">
+              <marquee className="fun-text" behavior="alternate">
                 <h1 className="title">
                   Scrum fun game (real fun) v3
                   <br /> (now even more fun)
                   <br /> (who knew it could get even funnier)
                   <div className="christmas-text"><br /> christmas edition 🎄🎅🏼</div>
-                  <div className="raketa-text"><br /> raketa edition 🚀😞</div>
                 </h1>
               </marquee>
             </marquee>
+            <h1 className="title raketa-text">scrum not so fun <br />raketa edition 🚀😞</h1>
           </div>
         </div>
         <div class="row">
@@ -68,6 +69,10 @@ class App extends Component {
               <StartScreen onStartClick={this.handleStartClick} error={error} />
             )}
           </div>
+        </div>
+
+        <div className="row">
+          <div className="col raketa-btn"><button onClick={() => document.querySelector('html').className = 'raketa-theme'} className="btn btn-light btn-lg">too many colors for me</button></div>
         </div>
       </div>
     );
