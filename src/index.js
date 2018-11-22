@@ -6,9 +6,18 @@ import Game from "./Game";
 import StartScreen from "./Game/StartScreen";
 
 import "./styles.css";
+import "./christmas.css";
 
 class App extends Component {
   state = { isGameStarted: false, username: "" };
+
+  constructor(props) {
+    super(props);
+
+    if (window.location.search.includes('christmas')) {
+      document.querySelector('html').className = "christmas-theme";
+    }
+  }
 
   handleStartClick = username => {
     this.setState({ isGameStarted: true, username });
@@ -22,18 +31,22 @@ class App extends Component {
 
     return (
       <div class="container-fluid">
+        <div className="background"></div>
         <div class="row">
           <div class="col">
             <marquee
               direction="down"
               width="100%"
-              height="200"
+              height="400"
               behavior="alternate"
             >
               <marquee behavior="alternate">
                 <h1 className="title">
-                  Scrum fun game (real fun) v2
+                  Scrum fun game (real fun) v3
                   <br /> (now even more fun)
+                  <br /> (who knew it could get even funnier)
+                  <div className="christmas-text"><br /> christmas edition 🎄🎅🏼</div>
+                  <div className="raketa-text"><br /> raketa edition 🚀😞</div>
                 </h1>
               </marquee>
             </marquee>
