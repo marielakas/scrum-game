@@ -29,3 +29,7 @@
 .christmas-theme .christmas-text {
   display: block;
 }
+
+.christmas-theme .card {
+  background-color: #ffbb23;
+}
