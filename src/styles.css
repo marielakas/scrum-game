@@ -4,6 +4,22 @@
     box-sizing: border-box;
   }
 
+  html,
+body {
+  height: 100%;
+}
+
+body {
+  animation: background 8s ease-in-out infinite alternate;
+}
+
+@keyframes background {
+  0% { background-color: red; }
+  33% { background-color: green; }
+  67% { background-color: blue; }
+  100% { background-color: yellow; }
+}
+
   body {
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     padding: 10px;
@@ -24,7 +40,7 @@
 
   .question h2 {
     font-size: 22px;
-    line-height: 22px;
+    line-height: 26px;
   }
 
   .options {
@@ -32,6 +48,5 @@
   }
 
   .option {
-    display: inline-block;
-    text-indent: 10px;
+    margin: 25px 0;
   }
