@@ -1,7 +1,7 @@
-export function getItem(key) {
+export function get(key) {
   return JSON.parse(localStorage.getItem(key));
 }
 
-export function setItem(key, data) {
+export function set(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }

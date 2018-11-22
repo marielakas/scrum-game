@@ -2,19 +2,10 @@ import React, { Component } from "react";
 
 import * as store from "../store";
 
-const questions = store.getItem("questions");
+const questions = store.get("questions");
 
 console.log(questions);
 
-/*
-store.setItem("questions", [
-  {
-    id: 1,
-    question: "Q1"
-  },
-  { id: 2, questions: "Q2" }
-]);
-*/
 
 export default class QuestionsEdit extends Component {
   state = { questions };
