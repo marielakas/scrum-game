@@ -2,12 +2,21 @@ import React from "react";
 
 import hardcodeQuestions from "../questions";
 
-const Result = ({ numberOfRightAnswers }) => {
-
+const Result = ({ numberOfRightAnswers, onReset, onShowScores }) => {
   return (
-    <h1 class="result-title">
-      You got {numberOfRightAnswers}/{hardcodeQuestions.length}.
-    </h1>
+    <div>
+      <h1 class="result-title">
+        You got {numberOfRightAnswers}/{hardcodeQuestions.length}.
+      </h1>
+      <div className="button-wrapper">
+        <button className="btn btn-primary btn-lg" onClick={onReset}>
+          New Game
+        </button>
+        <button className="btn btn-primary btn-lg" onClick={onShowScores}>
+          Show scoreboard
+        </button>
+      </div>
+    </div>
   );
 };
 

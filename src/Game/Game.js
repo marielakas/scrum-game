@@ -14,30 +14,35 @@ const initialState = {
 };
 
 export default class Game extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = initialState;
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (!prevState.isGameFinished && this.state.isGameFinished) {
-      saveGameScore(this.props.username, this.state.correctAnswers)
+      saveGameScore(this.props.username, this.state.correctAnswers);
     }
   }
 
   resetQuiz = () => {
     this.setState(initialState);
-  }
+    this.props.resetQuiz();
+  };
 
   showScores = () => {
     this.setState({ showScores: true });
-  }
+  };
 
   isAnswerCorrect = (currentQuestionIndex, answer) => {
     if (questions[currentQuestionIndex].correctAnswer === answer) {
       return true;
     }
-  }
+  };
+
+  showQuizResults = () => {
+    this.setState({ isGameFinished: true, showScores: false });
+  };
 
   handleAnswerSubmit = answer => {
     const { currentQuestionIndex, correctAnswers } = this.state;
@@ -50,13 +55,13 @@ export default class Game extends Component {
       questions[currentQuestionIndex] = {
         ...questions[currentQuestionIndex],
         rightOption: answer
-      }
+      };
     } else {
       questions[currentQuestionIndex] = {
         ...questions[currentQuestionIndex],
         rightOption: questions[currentQuestionIndex].correctAnswer,
         wrongOption: answer
-      }
+      };
     }
 
     this.setState({
@@ -69,20 +74,43 @@ export default class Game extends Component {
   };
 
   render() {
-    const { correctAnswers, isGameFinished, currentQuestionIndex, showScores } = this.state;
+    const {
+      correctAnswers,
+      isGameFinished,
+      currentQuestionIndex,
+      showScores
+    } = this.state;
+    const { username } = this.props;
     const currentQuestion = questions[currentQuestionIndex];
 
     return (
       <div>
         { !isGameFinished && <Counter currentQuestionIndex={currentQuestionIndex}/> }
-        { !isGameFinished && !showScores &&  <Question {...currentQuestion} submitAnswer={this.handleAnswerSubmit} /> }
-        { isGameFinished && !showScores ? <Result numberOfRightAnswers={correctAnswers}/> : null}
-        <div className="button-wrapper">
-          { isGameFinished && <button className="btn btn-primary btn-lg" onClick={this.resetQuiz}>Reset</button>}
-          { isGameFinished && !showScores && <button className="btn btn-primary btn-lg" onClick={this.showScores}>Show scoreboard</button>}
-        </div>
-        { isGameFinished && !showScores &&  questions.map(currentQuestion => <Question {...currentQuestion} readonly />)}
-        { isGameFinished && showScores && <GameScore /> }
+        {!isGameFinished && !showScores && (
+          <Question
+            {...currentQuestion}
+            submitAnswer={this.handleAnswerSubmit}
+          />
+        )}
+        {isGameFinished && !showScores ? (
+          <Result
+            numberOfRightAnswers={correctAnswers}
+            onReset={this.resetQuiz}
+            onShowScores={this.showScores}
+          />
+        ) : null}
+        {isGameFinished &&
+          !showScores &&
+          questions.map(currentQuestion => (
+            <Question key={currentQuestion.id} {...currentQuestion} readonly />
+          ))}
+        {isGameFinished && showScores && (
+          <GameScore
+            username={username}
+            onResetClick={this.resetQuiz}
+            onQuizResultsClick={this.showQuizResults}
+          />
+        )}
       </div>
     );
   }

@@ -4,7 +4,7 @@
     box-sizing: border-box;
   }
 
-  html,
+html,
 body {
   height: 100%;
 }
@@ -20,6 +20,16 @@ body {
   100% { background-color: yellow; }
 }
 
+@keyframes grow {
+  from {
+    transform: scale(.7);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
   body {
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     padding: 10px;
@@ -29,9 +39,10 @@ body {
     padding-bottom: 20px;
     background: linear-gradient(top,  rgb(206,106,255) 0%,rgb(201,97,252) 0%,rgb(95,255,255) 34%,rgb(102,249,98) 65%,rgb(255,96,96) 100%,rgb(255,105,106) 100%); /* W3C */
     text-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    animation: grow 2s ease-in-out infinite alternate;
 
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+	  -webkit-background-clip: text;
+	  -webkit-text-fill-color: transparent;
   }
 
   .question {
@@ -54,6 +65,7 @@ body {
   .game-container {
     display: flex;
     justify-content: center;
+    margin-bottom: 50px;
   }
 
   .start-screen-container {
@@ -94,3 +106,30 @@ body {
   text-align: right;
 }
 
+.board-item {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.winner {
+  background-color: yellow;
+}
+
+.christmas-text {
+  display: none;
+}
+
+.raketa-text {
+  display: none;
+}
+
+.error-message {
+  margin-top: 5px;
+  color: red;
+  font-size: 12px;
+}
+
+.raketa-btn {
+  text-align: right;
+  margin-bottom: 20px;
+}
