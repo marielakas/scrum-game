@@ -43,13 +43,13 @@ class App extends Component {
         <div className="background"></div>
         <div class="row">
           <div class="col">
-            <marquee
+            <marquee className="fun-text"
               direction="down"
               width="100%"
               height="400"
               behavior="alternate"
             >
-              <marquee className="fun-text" behavior="alternate">
+              <marquee behavior="alternate">
                 <h1 className="title">
                   Scrum fun game (real fun) v3
                   <br /> (now even more fun)
@@ -72,7 +72,15 @@ class App extends Component {
         </div>
 
         <div className="row">
-          <div className="col raketa-btn"><button onClick={() => document.querySelector('html').className = 'raketa-theme'} className="btn btn-light btn-lg">too many colors for me</button></div>
+          <div className="col raketa-btn">
+            <div className="fun-text">
+            <button onClick={() => document.querySelector('html').className = 'raketa-theme'} className="btn btn-light btn-lg">too many colors for me</button>
+            </div>
+
+            <div className="raketa-text">
+            <button onClick={() => document.querySelector('html').className = ''} className="btn btn-light btn-lg">scrum fun please</button>
+            </div>
+          </div>
         </div>
       </div>
     );
