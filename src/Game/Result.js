@@ -5,9 +5,9 @@ import hardcodeQuestions from "../questions";
 const Result = ({ numberOfRightAnswers }) => {
 
   return (
-    <div>
+    <h1 class="result-title">
       You got {numberOfRightAnswers}/{hardcodeQuestions.length}.
-    </div>
+    </h1>
   );
 };
 

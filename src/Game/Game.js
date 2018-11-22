@@ -69,7 +69,10 @@ export default class Game extends Component {
       <div>
         { !isGameFinished && <Question {...currentQuestion} submitAnswer={this.handleAnswerSubmit} /> }
         { isGameFinished ? <Result numberOfRightAnswers={correctAnswers}/> : null}
-        { isGameFinished && <button onClick={this.resetQuiz}>Reset</button>}
+        <div className="button-wrapper">
+          { isGameFinished && <button className="btn btn-primary btn-lg" onClick={this.resetQuiz}>Reset</button>}
+          { isGameFinished && <button className="btn btn-primary btn-lg" onClick={this.showScoreboard}>Show scoreboard</button>}
+        </div>
         { isGameFinished && questions.map(currentQuestion => <Question {...currentQuestion} readonly />)}
       </div>
     );

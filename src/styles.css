@@ -75,3 +75,17 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+
+.result-title {
+  text-align: center;
+}
+
+.button-wrapper {
+  margin: 20px 0 40px 0;
+  text-align: center;
+}
+
+.button-wrapper .btn-lg {
+  margin: 0 5px;
+}
+
