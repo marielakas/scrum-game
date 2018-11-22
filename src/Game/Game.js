@@ -26,6 +26,7 @@ export default class Game extends Component {
 
   resetQuiz = () => {
     this.setState(initialState);
+    this.props.resetQuiz();
   };
 
   showScores = () => {
@@ -86,23 +87,12 @@ export default class Game extends Component {
           />
         )}
         {isGameFinished && !showScores ? (
-          <Result numberOfRightAnswers={correctAnswers} />
+          <Result
+            numberOfRightAnswers={correctAnswers}
+            onReset={this.resetQuiz}
+            onShowScores={this.showScores}
+          />
         ) : null}
-        <div className="button-wrapper">
-          {isGameFinished && (
-            <button className="btn btn-primary btn-lg" onClick={this.resetQuiz}>
-              Reset
-            </button>
-          )}
-          {isGameFinished && !showScores && (
-            <button
-              className="btn btn-primary btn-lg"
-              onClick={this.showScores}
-            >
-              Show scoreboard
-            </button>
-          )}
-        </div>
         {isGameFinished &&
           !showScores &&
           questions.map(currentQuestion => (

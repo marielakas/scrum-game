@@ -14,6 +14,9 @@ class App extends Component {
     this.setState({ isGameStarted: true, username });
   };
 
+  handleReset = () => {
+    this.setState({ isGameStarted: false, username: "" });
+  };
   render() {
     const { isGameStarted, username } = this.state;
 
@@ -39,7 +42,7 @@ class App extends Component {
         <div class="row">
           <div class="col game-container">
             {isGameStarted ? (
-              <Game username={username} />
+              <Game username={username} resetQuiz={this.handleReset} />
             ) : (
               <StartScreen onStartClick={this.handleStartClick} />
             )}
