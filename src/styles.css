@@ -13,7 +13,6 @@
     padding-bottom: 20px;
     background: linear-gradient(top,  rgb(206,106,255) 0%,rgb(201,97,252) 0%,rgb(95,255,255) 34%,rgb(102,249,98) 65%,rgb(255,96,96) 100%,rgb(255,105,106) 100%); /* W3C */
     text-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    text-align: center;
 
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
