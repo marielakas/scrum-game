@@ -27,6 +27,7 @@ export default class Game extends Component {
   render() {
     const { result, isGameFinished, currentQuestionIndex } = this.state;
     const currentQuestion = questions[currentQuestionIndex];
+    console.log(this.props.username)
 
     return (
       <div>

@@ -50,3 +50,28 @@ body {
   .option {
     margin: 25px 0;
   }
+
+  .game-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .start-screen-container {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    border: 1px solid red;
+    align-items: center;
+    justify-content: center;
+  }
+
+.start-game-button {
+  margin-top: 20px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
