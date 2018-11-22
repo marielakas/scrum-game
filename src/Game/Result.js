@@ -10,7 +10,7 @@ const Result = ({ numberOfRightAnswers, onReset, onShowScores }) => {
       </h1>
       <div className="button-wrapper">
         <button className="btn btn-primary btn-lg" onClick={onReset}>
-          Reset
+          New Game
         </button>
         <button className="btn btn-primary btn-lg" onClick={onShowScores}>
           Show scoreboard

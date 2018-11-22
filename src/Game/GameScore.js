@@ -37,13 +37,13 @@ export default class GameScoreContainer extends Component {
         </div>
         <div className="button-wrapper">
           <button className="btn btn-primary btn-lg" onClick={onResetClick}>
-            Reset
+            New Game
           </button>
           <button
             className="btn btn-primary btn-lg"
             onClick={onQuizResultsClick}
           >
-            Quiz results
+            Back Quiz results
           </button>
         </div>
       </div>
