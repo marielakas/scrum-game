@@ -23,3 +23,11 @@
   display: block;
   text-align: center;
 }
+
+.sad-emoji {
+  right: 50px;
+  bottom: 10px;
+  position: fixed;
+  font-size: 100px;
+  opacity: 0.5;
+}

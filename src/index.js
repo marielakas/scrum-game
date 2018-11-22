@@ -58,7 +58,7 @@ class App extends Component {
                 </h1>
               </marquee>
             </marquee>
-            <h1 className="title raketa-text">scrum not so fun <br />raketa edition 🚀😞</h1>
+            <h1 className="title raketa-text">scrum not so fun <br />raketa edition 🚀</h1>
           </div>
         </div>
         <div class="row">
@@ -82,6 +82,8 @@ class App extends Component {
             </div>
           </div>
         </div>
+
+        <div className="raketa-text sad-emoji">😞</div>
       </div>
     );
   }
