@@ -19,5 +19,5 @@ export function resetGameScore() {
 }
 
 export const getUsernames = () => {
-  return store.get("GAME_SCORES").filter(score => score.username) || [];
+  return store.get("GAME_SCORES").map(score => score.username) || [];
 };

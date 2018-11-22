@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { getScores, saveGameScore } from "./Game/GameService";
+import { getUsernames } from "./Game/GameService";
 
 import Game from "./Game";
 import StartScreen from "./Game/StartScreen";
@@ -9,7 +9,7 @@ import "./styles.css";
 import "./christmas.css";
 
 class App extends Component {
-  state = { isGameStarted: false, username: "" };
+  state = { isGameStarted: false, username: "", usernames: getUsernames() };
 
   constructor(props) {
     super(props);
@@ -20,14 +20,23 @@ class App extends Component {
   }
 
   handleStartClick = username => {
-    this.setState({ isGameStarted: true, username });
+    const { usernames } = this.state;
+    const userExists = usernames.indexOf(username) !== -1;
+    console.log(userExists)
+
+    this.setState({
+      isGameStarted: !userExists,
+      username,
+      error: userExists ? 'Username already exists' : false
+    });
   };
 
   handleReset = () => {
     this.setState({ isGameStarted: false, username: "" });
   };
+
   render() {
-    const { isGameStarted, username } = this.state;
+    const { isGameStarted, username, error } = this.state;
 
     return (
       <div class="container-fluid">
@@ -57,7 +66,7 @@ class App extends Component {
             {isGameStarted ? (
               <Game username={username} resetQuiz={this.handleReset} />
             ) : (
-              <StartScreen onStartClick={this.handleStartClick} />
+              <StartScreen onStartClick={this.handleStartClick} error={error} />
             )}
           </div>
         </div>
