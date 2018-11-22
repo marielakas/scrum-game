@@ -4,8 +4,8 @@ import { getScores, saveGameScore, resetGameScore } from "./GameService";
 
 const GameScores = ({ scores }) => (
   <div>
-    {scores.map(({ username, score }) => (
-      <div>
+    {scores.map(({ username, score }, index) => (
+      <div key={index}>
         <span>{username}</span>
         <span>{score}</span>
       </div>
@@ -13,8 +13,10 @@ const GameScores = ({ scores }) => (
   </div>
 );
 
+console.log(getScores());
+
 export default class GameScoreContainer extends Component {
-  state = { scores: getScores() || [] };
+  state = { scores: getScores() };
 
   handleAddScore = () => {
     const randomScore = {
@@ -24,14 +26,15 @@ export default class GameScoreContainer extends Component {
 
     console.log(this.state.scores);
 
-    saveGameScore(randomScore);
+    console.log(randomScore);
+    saveGameScore(randomScore.username, randomScore.score);
     this.setState({ scores: [...this.state.scores, randomScore] });
   };
 
   handleResetStore = () => {
     resetGameScore();
     this.setState({ scores: [] });
-  }
+  };
 
   render() {
     const { scores } = this.state;

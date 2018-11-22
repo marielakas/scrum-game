@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import { getScores, saveGameScore } from "./Game/GameService";
 
 import Game from "./Game";
 import StartScreen from "./Game/StartScreen";
