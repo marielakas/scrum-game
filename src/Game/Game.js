@@ -39,6 +39,19 @@ export default class Game extends Component {
 
     const isAnswerCorrect = this.isAnswerCorrect(currentQuestionIndex, answer);
 
+    if (isAnswerCorrect) {
+      questions[currentQuestionIndex] = {
+        ...questions[currentQuestionIndex],
+        rightOption: answer
+      }
+    } else {
+      questions[currentQuestionIndex] = {
+        ...questions[currentQuestionIndex],
+        rightOption: questions[currentQuestionIndex].correctAnswer,
+        wrongOption: answer
+      }
+    }
+
     this.setState({
       currentQuestionIndex: !isGameFinished
         ? currentQuestionIndex + 1
@@ -54,9 +67,10 @@ export default class Game extends Component {
 
     return (
       <div>
-        <Question {...currentQuestion} submitAnswer={this.handleAnswerSubmit} />
+        { !isGameFinished && <Question {...currentQuestion} submitAnswer={this.handleAnswerSubmit} /> }
         { isGameFinished ? <Result numberOfRightAnswers={correctAnswers}/> : null}
         { isGameFinished && <button onClick={this.resetQuiz}>Reset</button>}
+        { isGameFinished && questions.map(currentQuestion => <Question {...currentQuestion} readonly />)}
       </div>
     );
   }
